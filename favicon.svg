@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 146 24">
+  <defs>
+    <linearGradient id="metallic-gray" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#888888;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#CCCCCC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#888888;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <path d="M16.3906 12.0001L10.8296 5.85353L17.5351 0H1.17088C0.524478 0 0 0.524188 0 1.17059V17.5612C0 18.2076 0.524478 18.7318 1.17088 18.7318H3.51235V24L8.78059 18.7318H26.3418C26.9882 18.7318 27.5126 18.2076 27.5126 17.5612V1.39561L16.3906 12.0001ZM7.60971 14.7323L10.0977 6.43912L15.7685 12.732L7.60971 14.7323Z" fill="url(#metallic-gray)"/>
+  <line x1="10.8296" y1="5.85353" x2="17.5351" y2="0" stroke="url(#metallic-gray)" stroke-width="0.5"/>
+  
+<!-- almanacs text -->
+  <text x="29" y="18" font-family="'Roboto Mono','Consolas', monospace" font-size="21" fill="url(#metallic-gray)" letter-spacing="-1.8">almanacs</text>
+
+</svg>
