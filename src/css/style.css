@@ -1006,10 +1006,10 @@ body {
 @media (min-width: 1400px) {
 
     /* Main */
-    
-    .main{
+
+    .main {
         max-width: 1480px;
-        width:100%;
+        width: 100%;
         margin-inline: auto;
     }
 
