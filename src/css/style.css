@@ -476,7 +476,7 @@ body {
 .nav-item {
     color: var(--on-surface-variant);
     --state-layer-bg: var(--on-surface-variant);
-    height: 56 px;
+    height: 56px;
     display: flex;
     align-items: center;
     gap: var(--spacing-05);

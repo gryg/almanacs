@@ -27,8 +27,37 @@ const getGreeting = function (currentHour) {
     return greeting + '!';
 }
 
+let /**{HTMLElement | undefined} */ $lastActiveItem;
+
+/**
+ * Activates a navigation item by adding the 'active' class to it 
+ * and deactivates the previously active item.
+ */
+
+const activeNotebook = function () {
+    $lastActiveItem?.classList.remove('active');
+    this.classList.add('active'); //this: $navItem
+    $lastActiveItem = this;
+}
+
+/**
+ * Makes an element editable by setting the 'conteneditable' attribute to true and focuses on it
+ * @param {HTMLElement} $element - element to be made editable
+ */
+
+const makeElementEditable = function ($element) {
+    $element.setAttribute('contenteditable', true);
+    $element.focus();
+}
+
+const generateID = function () {
+    return new Date().getTime().toString();
+}
 
 export {
     addEventOnElements,
-    getGreeting
+    getGreeting,
+    activeNotebook,
+    makeElementEditable,
+    generateID
 }
