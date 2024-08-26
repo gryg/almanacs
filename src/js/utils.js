@@ -9,7 +9,6 @@
  */
 
 const addEventOnElements = function ($elements, eventType, callback) {
-    // console.log($elements);
     $elements.forEach($element => $element.addEventListener(eventType, callback));
 }
 
@@ -54,10 +53,20 @@ const generateID = function () {
     return new Date().getTime().toString();
 }
 
+const findNotebook = function (db, notebookId) {
+    return db.notebooks.find(notebook => notebook.id === notebookId);
+}
+
+const findNotebookIndex = function (db, notebookId) {
+    return db.notebooks.findIndex(notebook => notebook.id === notebookId);
+}
+
 export {
     addEventOnElements,
     getGreeting,
     activeNotebook,
     makeElementEditable,
-    generateID
+    generateID,
+    findNotebook,
+    findNotebookIndex
 }

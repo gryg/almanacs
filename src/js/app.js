@@ -4,6 +4,7 @@ import { Tooltip } from "./Tooltip.js";
 import { addEventOnElements, getGreeting, activeNotebook, makeElementEditable } from "./utils.js";
 import { db } from "./db.js";
 import { client } from "./client.js";
+import { NoteModal } from "./components/Modal.js";
 
 //Toggle sidebar for small Displays
 const $sidebar = document.querySelector('[data-sidebar]'); // HTML Element
@@ -36,7 +37,7 @@ const $addNotebookButton = document.querySelector('[data-add-notebook]');
 // to create a new notebook
 
 
-const showNotebookField = function () {
+const showNotebooksField = function () {
     const $navItem = document.createElement('div');
     $navItem.classList.add('nav-item');
     $navItem.innerHTML = `
@@ -58,7 +59,7 @@ const showNotebookField = function () {
 }
 
 
-$addNotebookButton.addEventListener('click', showNotebookField);
+$addNotebookButton.addEventListener('click', showNotebooksField);
 
 const createNotebook = function (event) {
     if (event.key === 'Enter') {
@@ -67,7 +68,6 @@ const createNotebook = function (event) {
 
        // Render navItem
         client.notebook.create(notebookData);
-        
     }
 }
 
@@ -78,3 +78,25 @@ const renderExistingNotebook = function () {
     client.notebook.read(notebookList);
 }
 renderExistingNotebook();
+
+
+
+/**
+ * Create new note: Attaches event listenres to a collection of DOM elems representing "Add Note/Create Note" buttons.
+ * When a button is clicked, it opens a modal for creating a new note and handles the submission to the db & client
+ */
+
+const $addNoteButtons = document.querySelectorAll('[data-note-create-btn]');
+addEventOnElements($addNoteButtons, 'click', function () {
+    // Create and open a new note modal
+    const modal = NoteModal();
+    modal.open();
+    modal.onSubmit(noteObj =>{
+        const activeNotebookId = document.querySelector('[data-notebook].active').dataset.notebook;
+
+        const noteData = db.post.note(activeNotebookId, noteObj);
+        client.note.create(noteData);
+        modal.close();
+    });
+
+});

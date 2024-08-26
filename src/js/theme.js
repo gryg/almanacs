@@ -1,7 +1,6 @@
 'use strict';
 
 const storedTheme = localStorage.getItem('theme');
-console.log("storedTheme: ", storedTheme);
 const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
 document.documentElement.setAttribute('data-theme', storedTheme || systemTheme);
